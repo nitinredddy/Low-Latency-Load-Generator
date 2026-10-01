@@ -5,6 +5,9 @@ bin/
 *.so
 *.dylib
 *.csv
+*.json
+!compile_commands.json
+benchmarks/
 .DS_Store
 __pycache__/
 .pytest_cache/
