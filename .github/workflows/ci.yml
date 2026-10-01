@@ -1,0 +1,17 @@
+name: load-generator
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build
+      - name: Build
+        run: cmake --build build -j2
+      - name: Run CTest smoke test
+        run: ctest --test-dir build --output-on-failure
